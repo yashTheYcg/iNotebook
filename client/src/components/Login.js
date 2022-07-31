@@ -9,7 +9,7 @@ const Login = (props) => {
 
     const handleSubmit= async (e) =>{
         e.preventDefault();
-        const response = await fetch("http://localhost:8080/api/auth/login", {
+        const response = await fetch("/login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ const Login = (props) => {
   return (
     <div className='container my-3'>
         <h2>Login to continue iNotebook</h2>
-          <form onSubmit={handleSubmit}>
+          <form method='POST' onSubmit={handleSubmit}>
               <div className="mb-3">
                   <label htmlFor="email" className="form-label">Email</label>
                   <input type="email" className="form-control" id="email" name="email" value={email} aria-describedby="email" onChange={(e) => setEmail(e.target.value)} />
